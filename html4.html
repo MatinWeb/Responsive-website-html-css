@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="hz/HZ2.0.0-framework.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        main{
+            height: auto;
+/*            font-family: open sans,sans-serif;*/
+            overflow: hidden;
+            text-transform: capitalize;
+        }
+        input{
+            display: none;
+        }
+        .first{
+/*            height: 125vh;*/
+            position: relative;
+            overflow: hidden;
+        }
+        .first>img{
+            width: 100%;
+            position: absolute;
+            top: -30%;
+            left: 20%;
+            z-index: -2
+        }
+        .second{
+            width: 100%;
+            height: 10.4vh;
+        }
+        
+        .second>header{
+            height: 10.4vh;
+            float: left;
+            /* position: fixed; */
+            z-index: 99;
+        }
+        .head1{
+            height: 100%;
+            border-bottom:0.5px solid rgba(255, 255, 255, 0.08);
+        }
+        .head1>li:nth-of-type(1){
+            float: left;
+        }
+        .head1>li:nth-of-type(1)>a{
+            font-weight: 900;
+            font-size: 23px;
+        }
+        .head1>li{
+            float: right;
+        }
+        .head1>li>a{
+            font-weight: normal;
+            font-size: 15px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        .head1>li>a>span{
+            width: 0%;
+            height: 2px;
+            background: #e2c0bb;
+            position: absolute;
+            right: 50%;
+            top: 21px;
+            transition: .4s;
+        }
+        .head1>li>a:hover span{
+            width: 100%;
+            right: 0;
+            font-weight: bolder
+        }
+        .head1>li:nth-of-type(10)>a>span{
+            width: 100%;
+            position: absolute;
+            right: 0;
+            top: 21px;
+            color: #e2c0bb;
+        }
+        .head1>li:nth-of-type(10)>a{
+            color: #e2c0bb !important;
+        }
+        .menu2{
+            color: white;
+            padding-right: 4%;
+            cursor: pointer;
+        }
+        
+        .page1{
+            height: 100vh;
+        }
+        .page1-1,
+        .page1-2{
+            height: 100vh;
+        }
+        .img1{
+            background-image: url(img/1.webp);
+        }
+        .img2{
+            background-image: url(img/2.webp);
+        }
+        .img1,
+        .img2{
+            background-position: center center;
+            background-size: cover;
+            height: 100vh;
+        }
+        .text1,
+        .text2{
+            height: 100vh;
+        }
+        
+        
+/*              page 2*/
+        
+        
+        .page2{
+            margin-top: 5vh;
+        }
+         .text3{
+            margin-bottom: 3%;
+        }
+        .text3>p{
+            font-size: 16px;
+            color: #e2c0bb;
+            margin: 2.5% 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .text3>h2{
+            font-weight: normal;
+            margin-bottom: 2.5%;
+        }
+        .text3>span{
+            color: #999999;
+            font-size: 16px;
+        }
+        .text4{
+            text-align: center;
+            margin-top: 7%;
+        }
+        .sear3>label>span{
+            width: 5px;
+            height: 1px;
+            color: transparent;;
+        }
+        .sear2>li>label{
+            display: inline-block;
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        .sear2>li>input,
+        .sear2>li:nth-of-type(4)>select{
+            height: 7vh;
+            font-size: 18px;
+            padding-left: 4%;
+            border: 1px solid #e2c0bb !important;
+            color: rgba(0, 0, 0, 0.4) !important;
+        }
+        .sear2>li:nth-of-type(4)>select>option{
+            width: 100%;
+            height: 100%;
+            font-size: 18px;
+            border: 1px solid #e2c0bb !important;
+            color: rgba(0, 0, 0, 0.4) !important;
+        }
+        .sear2>li:nth-of-type(5)>input{
+            color: white;
+            background: #e2c0bb;
+        } 
+       
+        ::placeholder{
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 18px;
+        }
+        
+        .svg2>div>div{
+            background-image: url(img/blob-shape-2.svg);
+            background-size: 120px;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+        .svg2>div>h4{
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 6%;
+        }
+        .svg2>div>p{
+            line-height: 1.8;
+            font-weight: 400;
+            color: #999999;
+            text-align: center;
+            font-size: 16px;
+        }
+        .about1-2{
+            background: #232931;
+        }
+        .about1-2>span{
+            color: #e2c0bb;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5%;
+            margin-top: 4%;
+            padding-left: 3%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .about1-2>h3{
+            color: #fff;
+            font-size: 40px;
+            font-weight: normal;
+            padding-left: 3%;
+            margin-bottom: 7%;
+        }
+        .about1-2>p{
+            font-size: 16px;
+            line-height: 1.8;
+            font-weight: normal;
+            color: #999999;
+            padding-left: 3%;
+            margin-bottom: 9%;
+        }
+        .about1-2>a{
+            padding: 3% 4%;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .about1-2>a:nth-of-type(1){
+            background: #e2c0bb;
+            color: white;
+            margin-left: 3%;
+        }
+        .about1-2>a:nth-of-type(2){
+            background: white;
+            color: rgba(0, 0, 0, 0.67);
+        }
+        .about2{
+            background-image: url(img/mountain.webp);
+            background-size: cover;
+            height: 70vh;
+            background-position: bottom;
+            position: relative;
+        }
+        .about2::before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+/*            z-index: 1;*/
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.27), transparent);
+        }
+        .about2>h2,
+        .about2>p{
+            width: 80%;
+            text-align: center;
+            color: white;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .about2>h2{
+            font-size: 50px;
+            top: 30%;
+
+        }
+        .about2>p{
+            font-size: 16px;
+        }
+        .about2>a{
+            font-size: 15px;
+            padding: 1.5% 2.5%;
+            background: white;
+            color: black;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hot2-0>li:nth-of-type(1){
+            background-image: url(img/room%20hotel4.jpg);
+            background-size: cover;
+        }
+        .hot2-1>li{
+            height: 100%;
+            width: 50%;
+            float: left;
+        }
+        .hot2-1>li:nth-of-type(1){
+            background-size: cover;
+            background-position: center;
+        }
+        .hotel2>ul>li:nth-of-type(2)>a{
+            padding: 12% 10%;
+            display: block;
+            color: rgba(0, 0, 0, 0.78);
+        }
+        .hotel2{
+            padding: 2.5% 0;
+        }
+        .hot2-0>li:nth-of-type(2){
+            padding: 4.5% 4%;
+        }
+        
+        .hot2-0>li:nth-of-type(2)>h4{
+            font-size: 30px;
+            margin-bottom: 3%;
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.77);
+        }
+        .hot2-0>li:nth-of-type(2)>p:nth-of-type(1){
+            font-size: 16px;
+            margin-bottom: 4%;
+            color: rgba(0, 0, 0, 0.77);
+        }
+        .hot2-0>li:nth-of-type(2)>p:nth-of-type(1)>span{
+            color: #e2c0bb;
+            font-size: 16px;
+        }
+        .hot2-0>li:nth-of-type(2)>p:nth-of-type(2){
+            font-size: 16px;
+            line-height: 1.8;
+            font-weight: 400;
+            color: #999999;
+            margin-bottom: 8%;
+        }
+        .hot2-0>li:nth-of-type(2)>a{
+            padding: 2% 3%;
+            color: white;
+        }
+        .hot2-0>li:nth-of-type(2)>a:nth-of-type(1){
+            background: #b2bbc9; 
+        }
+        .hot2-0>li:nth-of-type(2)>a:nth-of-type(2){
+            background: #e2c0bb; 
+        }
+        
+        .hot2-1-1>li:nth-of-type(1){
+            background-image: url(img/room%20hotel1.jpg);
+        }
+        .hot2-1-2>li:nth-of-type(1){
+            background-image: url(img/room%20hotel2.jpg);
+        }
+        .hot2-1-3>li:nth-of-type(1){
+            background-image: url(img/room%20hotel3.jpg);
+        }
+        .hot2-1-4>li:nth-of-type(1){
+            background-image: url(img/room%20hotel5.jpg);
+        }
+        
+        
+        
+/*             paaaaaage 5*/
+        
+        
+        .page5{
+            background: #b2bbc9;
+            position: relative;
+        }
+        .svg5{
+            height: 50%;
+            background-image: url(img/blob-shape-2.svg);
+            background-repeat: no-repeat;
+        }
+        .svg5-1{
+            background-position: -20% 89%;
+        }
+        .svg5-2{
+            background-position: 120% 11%;
+
+        }
+        .slid5{
+            height: 85%;
+            top: 8%;
+            position: absolute;
+        }
+        .tex{
+            height: 25%;
+        }
+        .tex>p,
+        .tex>h3{
+            text-align: center;
+            color: white;
+        }
+        .tex>p{
+            padding-top: 3%;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+        }
+        .tex>h3{
+            padding-top: 1.5%;
+            font-size: 40px;
+            font-weight: normal;
+        }
+        .slid5-1{
+            width: 100%;
+            height: 75px;
+        }
+        .slid5-1>img{
+            border-radius: 50%;
+        }
+        .slid5-1>figcation{
+            text-align: center;
+            margin-top: 2%;
+            color: white;
+            font-size: 15px;
+        }
+        
+        
+/*                 page6*/
+        
+        
+        .page6{
+/*            height: 140vh;*/
+        }
+        .cont2{
+            padding: 3% 4%;
+            background: #f8f9fa;
+/*            min-height: 50vh;*/
+            float: right !important;
+        }
+        .cont2>input{
+            height: 8vh;
+            margin-bottom: 3%;
+            padding-top: 2%;
+            padding-left: 3%;
+        }
+        .cont2>input:nth-of-type(4){
+            background: #e2c0bb;
+            border: 1px solid #e2c0bb;
+        }
+        
+        .cont2>textarea{
+            height: 30vh;
+            padding-top: 2%;
+            padding-left: 3%;
+            margin-bottom: 3%;
+        }
+        ::placeholder{
+            font-size: 15px;
+        }
+        
+        .cont1>div{
+            background: #f8f9fa;
+            margin-bottom: 3%;
+        }
+        .cont1>div>h4{
+            font-size: 25px;
+            padding-top: 3%;
+            padding-bottom: 4%;
+            padding-left: 6%;
+            color: rgba(0, 0, 0, 0.85);
+            font-weight: normal;
+        }
+        .cont1>div>p{
+            font-size: 16px;
+            padding-top: 3%;
+            padding-bottom: 6%;
+            padding-left: 6%;
+            color: #e2c0bb;
+        }
+        .cont1>div:nth-of-type(1)>p{
+            color: #999999 !important;
+        }
+        
+        
+/*              fooooooter*/
+        
+        footer{
+            background: rgba(0, 0, 0, 0.92);
+        }
+        footer>ul{
+            padding: 10% 0;
+        }
+        footer>ul>li>a,
+        footer>ul>li>p{
+            display: block;
+            color: #999999 !important;
+            margin-bottom: 5%;
+            padding-right: 15%;
+        }
+        footer>ul>li>h4{
+            color: white;
+            padding-bottom: 10%;
+        }
+        footer>ul>li:nth-of-type(4)>ul{
+            color: #999999;
+        }
+        footer>ul>li:nth-of-type(4)>ul>li>a,
+        footer>ul>li:nth-of-type(4)>ul>li>p{
+            margin-bottom: 5%;
+            display: block;
+        }
+        footer>ul>li:nth-of-type(4)>ul>li>span{
+            display: block;
+        }
+        
+    </style>
+</head>
+<body>
+    <main class="col-m-100 col-t-100 col-d-100">
+        <div class="first col-m-100 col-t-100 col-d-100">
+            <img src="img/blob-shape-3.svg" alt="">
+            <div class="second col-m-100 col-t-100">
+                <header class="col-m-100 col-t-100 col-d-100">
+                    <ul class="head1 col-m-100 col-t-100 row-d-85">
+                       <li><a href="">ecoland</a></li>
+                       <li class="db-m db-t dn-d col-m-22 col-t-15">
+                           
+                           <label for="menu1" class="menu2"><i class="fa fa-bars" aria-hidden="true"></i></label>
+                           <a href="">menu</a>
+                       </li>
+                       <input type="checkbox" id="menu1">
+                       <li class="dn-m dn-t db-d"><a href="">contact <span></span></a></li>
+                       <li class="dn-m dn-t db-d"><a href="">blog <span></span></a></li>
+                       <li class="dn-m dn-t db-d"><a href="">Restaurant <span></span></a></li>
+                       <li class="dn-m dn-t db-d"><a href="">Hotel <span></span></a></li>
+                       <li class="dn-m dn-t db-d"><a href="">Destination <span></span></a></li>
+                       <li class="dn-m dn-t db-d"><a href="">About <span></span></a></li>
+                       <li class="dn-m dn-t db-d"><a href="">Services <span></span></a></li>
+                       <li class="dn-m dn-t db-d"><a href="">Home <span></span></a></li>
+                    </ul>
+                </header>
+            </div>
+            <div class="page1 col-m-100 col-t-100 col-d-100">
+                <div class="page1-1 col-m-100 col-t-100 row-d-85">
+                    <div class="img1 col-m-100 col-t-100 col-d-45">
+                        <div class="up1">
+                            <div>
+<!--                                <p>greece</p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text1 col-m-100 col-t-100 col-d-55">   
+                        <span></span><span><em>discover greece</em></span>
+                        <h2>explore your travel destinations like never before</h2>
+                        <p>a small river named duden flowed by their place and supplies it with the necessary regelialia. it is a paradisematic country.</p>
+                        <a href="">discover</a>
+                    </div>    
+                </div>
+                <div class="page1-2 col-m-100 col-t-100 row-d-85">
+                    <div class="img2 col-m-100 col-t-100 col-d-45">
+                        <div class="up2">
+                            <div>
+<!--                                <p>africa</p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text2 col-m-100 col-t-100 col-d-55">
+                        <span></span><span><em>discover africa</em></span>
+                        <h2>never stop exploring</h2>
+                        <p>a small river named duden flowed by their place and supplies it with the necessary regelialia. it is a paradisematic country.</p>
+                        <a href="">discover</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page2 col-m-100 col-t-100 col-d-100">
+        <div class="text3 row-m-85 row-t-85 row-d-85">
+            <p>SEXY & HEALTHY</p>
+            <h2>Where do you want to go?</h2>
+            <span>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</span>
+        </div>
+        <div class="sear1 row-m-85 row-t-85 row-d-85">
+            <ul class="sear2 col-m-100 col-t-100 col-d-100 df-d jc-d-b">
+                <li class="sear3 col-m-100 col-t-100 col-d-16">
+                   <label for="" class="mb-m-2 mt-m-4 mb-t-3 mt-m-4">Destination</label>
+                    <input type="text" class="col-m-100 col-t-100 col-d-100 db" placeholder="search place">
+                </li>
+                <li class="sear3 col-m-100 col-t-100 col-d-16">
+                   <label for="" class="mb-m-2 mt-m-4 mb-t-3 mt-t-4">Check-in date</label>
+                    <input type="text" class="col-m-100 col-t-100 col-d-100 db" placeholder="check in date">
+                </li>
+                <li class="sear3 col-m-100 col-t-100 col-d-16">
+                   <label for="" class="mb-m-2 mt-m-4 mb-t-3 mt-t-4">Check-out date</label>
+                    <input type="text" class="col-m-100 col-t-100 col-d-100 db" placeholder="check out date"> 
+                </li>
+                <li class="sear3 col-m-100 col-t-100 col-d-16"> 
+                    <label for="pri" class="mb-m-2 mt-m-4 mb-t-3 mt-t-4">Price Limit</label>
+                    <select name="price" id="pri" class="col-m-100 col-t-100 col-d-100">
+                        <option value="$5,000" selected>$5,000</option>
+                        <option value="$10,000">$10,000</option>
+                        <option value="$50,000">$50,000</option>
+                        <option value="$100,000">$100,000</option>
+                        <option value="$200,000">$200,000</option>
+                        <option value="$300,000">$300,000</option>
+                        <option value="$400,000">$400,000</option>
+                        <option value="$500,000">$500,000</option>
+                        <option value="$600,000">$600,000</option>
+                        <option value="$700,000">$700,000</option>
+                        <option value="$800,000">$800,000</option>
+                        <option value="$900,000">$900,000</option>
+                        <option value="$1,000,000">$1,000,000</option>
+                        <option value="$2,000,000">$2,000,000</option>
+                    </select>
+                </li>
+                <li class="sear3 col-m-100 col-t-100 col-d-16">
+                   <label for="" class="mt-m-0 mt-t-0"><span>search</span></label>
+                    <input type="submit" value="search" class="col-m-100 col-t-100 col-d-100 db"> 
+                </li>
+            </ul>
+        </div>
+        <div class="text3 text4 row-m-85 row-t-85 row-d-85 ">
+            <p>SEXY & HEALTHY</p>
+            <h2>Our Services</h2>
+            <span>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</span>
+        </div>
+        <div class="svg2 row-m-85 row-t-85 row-d-85">
+            <div class="col-m-100 col-t-25 col-d-25 ptb-m-1 plr-m-4 p-d-2 ptb-t-3 plr-t-2 ">
+                <div class="col-m-100 col-t-100 col-d-100">
+                    <img src="img/gliding.png" alt="">
+                </div> 
+                <h4>Activities</h4>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+            <div class="col-m-100 col-t-25 col-d-25 ptb-m-1 plr-m-4 p-d-2 ptb-t-3 plr-t-2 ">
+                <div class="col-m-100 col-t-100 col-d-100">
+                    <img src="img/world.png" alt="">
+                </div>
+                <h4>Travel Arrangement</h4>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+            <div class="col-m-100 col-t-25 col-d-25 ptb-m-1 plr-m-4 p-d-2 ptb-t-3 plr-t-2 ">
+               <div class="col-m-100 col-t-100 col-d-100">
+                   <img src="img/tour-guide.png" alt="">
+               </div>
+                <h4>Private Guide</h4>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+            <div class="col-m-100 col-t-25 col-d-25 ptb-m-1 plr-m-4 p-d-2 ptb-t-3 plr-t-2">
+               <div class="col-m-100 col-t-100 col-d-100">
+                   <img src="img/map-of-roads.png" alt="">
+               </div>
+                <h4>Location Manager</h4>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+    </div>
+        <div class="page3 col-m-100 col-t-100 col-d-100">
+            <div class="about1 row-m-85 row-t-85 row-d-85">
+               <div class="about1-1 col-m-100 col-t-40 col-d-45 "></div>
+               <div class="about1-2 col-m-100 col-t-60 col-d-55 ">
+                   <span>GET IN TOUCH WITH US</span>
+                   <h3>Get Best Travel Deals</h3>
+                   <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+
+                    Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+                    
+                    A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                   <a href=""> Book Now</a>
+                   <a href="">Contact Us</a>
+               </div> 
+            </div>
+            <div class="about2 col-m-100 col-t-100 col-d-100">
+                <h2>Choose the Perfect Destination</h2>
+                <p>We can manage your dream building A small river named Duden flows by their place</p>
+                <a href="">Search places</a>
+            </div>
+        </div>
+        <div class="page4 col-m-100 col-t-100 col-d-100">
+            <div class="text4 text3 row-m-85 row-t-85 row-d-85">
+                <p>ROOMS & SUITES</p>
+                <h2>Greece Best Rooms Offer</h2>
+                <span>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</span>
+            </div>
+            <div class="hotel1 row-m-85 row-t-85 row-d-85">
+                <ul class="hot2 hot2-0 col-m-100 col-t-100 col-d-100">
+                    <li class="col-m-100 col-t-50 col-d-50"></li>
+                    <li class="col-m-100 col-t-50 col-d-50">
+                        <h4>Classic Balcony Room</h4>
+                        <p>from <span>$99.00</span>/night</p>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <a href="">Details</a>
+                        <a href="">Book Now</a>
+                    </li>
+                </ul>
+                <div class="hotel2 col-m-100 col-t-100 col-d-100">
+                    <ul class="hot2 hot2-1 hot2-1-1 col-m-50 col-t-25 col-d-25">
+                        <li></li>
+                        <li><a href="">Classic Balcony Room</a></li>
+                    </ul>
+                   
+                    <ul class="hot2 hot2-1 hot2-1-2 col-m-50 col-t-25 col-d-25">
+                        <li></li>
+                        <li><a href="">Classic Balcony Room</a></li>
+                    </ul>
+                    <ul class="hot2 hot2-1 hot2-1-3 col-m-50 col-t-25 col-d-25">
+                        <li></li>
+                        <li><a href="">Classic Balcony Room</a></li>
+                    </ul>
+                    <ul class="hot2 hot2-1 hot2-1-4 col-m-50 col-t-25 col-d-25">
+                        <li></li>
+                        <li><a href="">Classic Balcony Room</a></li>
+                    </ul>
+                </div>    
+            </div>
+        </div>
+        <div class="page5 col-m-100 col-t-100 col-d-100">
+            <div class="svg5 svg5-1 col-m-100 col-t-100 col-d-100"></div>
+            <div class="svg5 svg5-2 col-m-100 col-t-100 col-d-100"></div>
+            <div class="slid5 row-m-85 row-t-85 row-d-85">
+                <div class="tex">
+                    <p>READ TESTIMONIALS</p>
+                    <h3>What Client Says</h3>
+                </div>
+                <figure class="slid5-1">
+                    <img class="col-m-18 col-t-15 col-d-12 " src="img/person_1.webp" alt="">
+                    <img class="col-m-18 col-t-15 col-d-12 " src="img/person_2.webp" alt="">
+                    <img class="col-m-18 col-t-15 col-d-12 " src="img/person_3.webp" alt="">
+                    <figcation class="col-m-18 col-t-15 col-d-12">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.<br><br> Jeff Freshman <br>ARTIST</figcation>
+                    <figcation class="col-m-18 col-t-15 col-d-12">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.<br><br> Jeff Freshman <br>ARTIST</figcation>
+                    <figcation class="col-m-18 col-t-15 col-d-12">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.<br><br> Jeff Freshman <br>ARTIST</figcation>
+                </figure>
+            </div>
+        </div>
+        <div class="page6 col-m-100 col-t-100 col-d-100">
+            <div class="text3 text4 row-m-85 row-t-85 row-d-85">
+                <p>CONTACT</p>
+                <h2>Contact Me</h2>
+                <span>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</span>
+            </div>
+            <div class="contact row-m-85 row-t-85 row-d-85">
+                <div class="cont1 col-m-100 col-t-40 col-d-40">
+                    <div>
+                        <h4>Address</h4>
+                        <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+                    </div>
+                    <div>
+                        <h4>Contact Number</h4>
+                        <p>+ 1235 2355 98</p>
+                    </div>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p>info@yoursite.com</p>
+                    </div>
+                    <div>
+                        <h4>Website</h4>
+                        <p>yoursite.com</p>
+                    </div>
+                </div>
+                <div class="cont2 col-m-100 col-t-55 col-d-55">
+                    <input class="col-m-100 col-t-100 col-d-100 db" type="text" placeholder="Your Name">
+                    <input class="col-m-100 col-t-100 col-d-100 db" type="email" placeholder="Your Email">
+                    <input class="col-m-100 col-t-100 col-d-100 db" type="text" placeholder="Subject">
+                    <textarea name="matn" class="col-m-100 col-t-100 col-d-100" placeholder="Message"></textarea>
+                    <input type="submit" value="Send Message" class="col-m-100 col-t-100 col-d-100 db">
+                </div>
+            </div>
+        </div>
+        <footer class="page7 col-m-100 col-t-100 col-d-100">
+            <ul class="row-m-85 row-t-85 row-d-85">
+                <li class="col-m-100 col-t-25 col-d-25">
+                    <h4>About Ecoland</h4>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </li>
+                <li class="col-m-100 col-t-25 col-d-25">
+                    <h4>Information</h4>
+                    <a href="">Online Enquiry</a>
+                    <a href="">General Enquiry</a>
+                    <a href="">Booking</a>
+                    <a href="">Privacy</a>
+                    <a href="">Refund Policy</a>
+                    <a href="">Call Us</a>
+                </li>
+                <li class="col-m-100 col-t-25 col-d-25">
+                    <h4>Experience</h4>
+                    <a href="">Adventure</a>
+                    <a href="">Hotel and Restaurant</a>
+                    <a href="">Beach</a>
+                    <a href="">Nature</a>
+                    <a href="">Camping</a>
+                    <a href="">Party</a>
+                </li>
+                <li class="col-m-100 col-t-25 col-d-25">
+                    <h4>Have a Questions?</h4>
+                    <ul class="col-m-100 col-t-100 col-d-100">
+                        <li class="col-m-15 col-t-15 col-d-15">
+                        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        </li>
+                        <li class="col-m-85 col-t-85 col-d-85"><p>	203 Fake St. Mountain View, San Francisco, California, USA</p>
+                        <a href="">	+2 392 3929 210</a>
+                        <a href="">	info@yourdomain.com</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </footer>
+    </main>
+</body>
+<script>
+$(document).ready(function(){
+    $(document).scroll(function(){
+        temp = $(this).scrollTop()
+        if(temp > 800){
+            $('.second>header').fadeIn(2000)
+            $('.second>header').addClass('headjs')
+        }else{
+            $('.second>header').removeClass('headjs')
+        }
+    })
+})
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
